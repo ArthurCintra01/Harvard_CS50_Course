@@ -1,0 +1,12 @@
+$color: red;
+
+div{
+    font-size:18px;
+    ul{
+        color:$color;
+    }
+    ol{
+        color:$color;
+    }
+}
+/*apenas afeta os ul e ol dentro de div*/

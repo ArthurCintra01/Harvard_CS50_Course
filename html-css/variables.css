@@ -1,0 +1,13 @@
+div {
+  font-size: 18px;
+}
+div ul {
+  color: red;
+}
+div ol {
+  color: red;
+}
+
+/*apenas afeta os ul e ol dentro de div*/
+
+/*# sourceMappingURL=variables.css.map */

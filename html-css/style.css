@@ -1,0 +1,21 @@
+.hello {
+    background-color:orange;
+    width: 400px;
+    height: 200px;
+    padding:20px;
+    margin:20px;
+    font-family: Arial,sans-serif;
+    font-size:28px;
+    font-weight: bold;
+    border:3px solid black;
+}
+
+table{
+    border:1px solid black;  
+    border-collapse: collapse;
+    font-size: 20px;
+}
+td,th{
+    border: 1px solid black;
+    padding:5px;
+}

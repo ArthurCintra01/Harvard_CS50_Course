@@ -5,22 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Google</title>
+    <title>Google Images</title>
 </head>
 <body>
     <div class="links">
-        <a class="image_search" href="image.html">Images</a>
+        <a class="index" href="index.html">Search</a>
         <a class="advanced_search" href="advanced.html">Advanced Search</a>
     </div>
     <div class="form">
-        <form action="https://google.com/search">
-            <img class="logo" alt="Google" src="resources/googlelogo.png">
+        <form action="https://google.com/images">
+            <div class="logo">
+                <img alt="Google" height="92" width="272" src="resources/googlelogo.png">
+                <br>
+                <span id="img_txt">Images</span>
+            </div>
             <br>
             <input class="searchbar" type="text" name="q">
             <br>
             <input class="submit" type="submit" value="Google Search">
-            <input class="submit" type="submit" value="I'm Feeling Lucky">
         </form>
-    </div>  
+    </div>       
 </body>
 </html>

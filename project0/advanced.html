@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Search</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Google Advanced Search</title>
 </head>
-<body>
-    
+<body>   
+    <div class="links_ad">
+        <a class="index" href="index.html">Google Search</a>
+    </div>  
+    <h2 id="advanced">Advanced Search</h1>
+    <br>
+    <form class="adForm" action="https://google.com/search" >
+        <h3>Find pages with:</h3>
+        <br>
+        <div class="field">
+            <div class="label">
+            all these words:
+            </div>
+            <div class="textinput">
+                <input id="txtfield" type="text" value="" name="as_q">
+            </div>
+            <div class="complement">
+            Type the important words: <span class="subcomp">tri-colour rat terrier</span>
+            </div>
+        </div>
+        <br>
+        <div class="field">
+            <div class="label">
+            this exact word or phrase:
+            </div>
+            <div class="textinput">
+                <input id="txtfield" type="text" value="" name="as_epq">
+            </div>
+            <div class="complement">
+                Put exact words in quotes: <span class="subcomp">"rat terrier"</span>
+            </div>
+        </div>
+        <br>
+        <div class="field">
+            <div class="label">
+            any of these words:
+            </div>
+            <div class="textinput">
+                <input id="txtfield" type="text" value="" name="as_oq">
+            </div>
+            <div class="complement">
+                Type OR between all the words you want: <span class="subcomp">miniature OR standard</span>
+            </div>
+        </div>      
+        <br>
+        <div class="field">
+            <div class="label">
+            none of these words:
+            </div>
+            <div class="textinput">
+                <input id="txtfield" type="text" value="" name="as_eq">
+            </div>
+            <div class="complement">
+                Put a minus sign just before words that you don't want: <span class="subcomp">-rodent, -"Jack Russel"</span>
+            </div>
+        </div>
+        <br>
+        <input class="ad_button" type="submit" value="advanced search">
 </body>
 </html>

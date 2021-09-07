@@ -4,17 +4,15 @@ body{
 
 .links{
     text-align: right;
-    height: 70px;
+    height: 200px;
 }
 
 .form{
-    padding-top: 50px;
     text-align: center;
     width: 50%;
     background-color: transparent;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 150px;
 }
 
 .logo{
@@ -22,12 +20,28 @@ body{
     height:"92";
     width:"272";
 }
+.img_logo{
+    margin-right: auto;
+    margin-left: auto;
+    background-image:url('https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png');
+    background-size: 272px 92px;
+    background-repeat: no-repeat;
+    height: 92px;
+    width: 272px;
+    text-align: center;
+}
 
 #img_txt{
     color:#4285f4;
+    font: 16px/16px roboto-regular, arial, sans-serif;
+    position: relative;
+    left: 105px;
+    top: 76px;
+    white-space: nowrap;
 }
 
 .searchbar{
+    margin-top: 5px;
     background-image:url('resources/searchicon.jpg');
     background-repeat: no-repeat;
     background-size: 22px 22px;
@@ -91,7 +105,7 @@ body{
     font-size:0.8em;
 }
 .links_ad{
-    background-image: url('resources/googlelogo.png');
+    background-image: url('https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png');
     background-size: 74px 24px;
     background-position: 10px 10px;
     background-repeat: no-repeat;

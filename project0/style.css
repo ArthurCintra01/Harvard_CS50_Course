@@ -18,7 +18,7 @@ body{
 }
 
 .logo{
-    margin:25px;
+    margin:20px;
     height:"92";
     width:"272";
 }
@@ -27,8 +27,13 @@ body{
 }
 
 .searchbar{
+    background-image:url('resources/searchicon.jpg');
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    background-position: 10px 10px;
+    background-color:transparent;
     padding:10px;
-    padding-left: 20px;
+    padding-left: 40px;
     width: 60%;
     border-radius: 30px;
     border-width: 1px;

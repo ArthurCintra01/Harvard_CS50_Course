@@ -42,14 +42,14 @@ body{
 
 .searchbar{
     margin-top: 5px;
-    background-image:url('resources/searchicon.jpg');
+    background-image:url('https://icon-library.com/images/google-search-icon/google-search-icon-13.jpg');
     background-repeat: no-repeat;
     background-size: 22px 22px;
     background-position: 10px 10px;
     background-color:transparent;
     padding:10px;
     padding-left: 40px;
-    width: 60%;
+    width: 50%;
     border-radius: 30px;
     border-width: 1px;
     font-size: 1em;
@@ -59,19 +59,20 @@ body{
 }
 
 .submit{
+    color: #3c4043;
     margin-top: 25px;
     margin-left:5px;
-    border-radius: 5px;
-    background-color:whitesmoke;
-    border-style: hidden;
-    font-size:0.9em;
-    padding:9px;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    background-color:#f8f9fa;
+    font-size: 14px;
+    padding: 9px;
     border-width: 1px;
     font: 400 13.3333px Arial;
 }
 
 .submit:hover{
-    border-style: solid;
+    border-style: outset;
 }
 
 .image_search , .advanced_search , .index{

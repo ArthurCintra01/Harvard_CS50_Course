@@ -144,15 +144,15 @@ body{
 
 .ad_button{
     margin-top: 25px;
+    border: 1px solid #4d90fe;
     border-radius: 2px;
     background-color:#4d90fe;
     color:white;
-    border-style: hidden;
     font-size: 11px;
     padding: 9px;
-    border-width: 1px;
     font: 400 13.3333px Arial;  
 }
 .ad_button:hover{
     background-color:#4787ed;
+    border-style: outset;
 }

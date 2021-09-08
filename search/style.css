@@ -20,6 +20,7 @@ body{
     height:"92";
     width:"272";
 }
+
 .img_logo{
     margin-right: auto;
     margin-left: auto;
@@ -55,9 +56,11 @@ body{
     box-shadow: none;
     font-size: 1em;
 }
+
 .searchbar:hover{
     border-style: groove;
 }
+
 .searchbar:focus{
     outline: none;
     border-style: groove;
@@ -92,23 +95,27 @@ body{
 .image_search:hover , .advanced_search:hover, .index:hover{
     text-decoration: underline;
 }
+
 #small_logo{
     margin-right: 100%;
     height: 24px;
     width: 74px;
 
 }
+
 #advanced{
     margin:25px 35px;
     font-size:20px;
     color:#d93025;
 }
+
 .adForm{
     border-top: 0.8px solid #c0c0c0;
     padding:35px;
     font-size:0.8em;
     border-bottom: 0.8px solid #c0c0c0;
 }
+
 .links_ad{
     background-image: url('https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png');
     background-size: 74px 24px;
@@ -117,36 +124,44 @@ body{
     text-align: right;
     height: 70px;
 }
+
 #headers{
     font-size: 16px;
     display: inline-block;
 }
+
 #toDo{
     margin-left: 550px;
 }
+
 .field{
     margin: 2px;
     font-size:1.2em;
 }
+
 .label{
     display:inline-block;
     width: 180px;
     text-align: left;
     font-size: 14px;
 }
+
 .textinput{
     display: inline-block;
     margin-left: 5px;
     line-height: 16px;
 }
+
 .complement{
     font-size: 12px;
     display: inline-block;
     margin-left: 300px;
 }
+
 .subcomp{
     color:#666;
 }
+
 #txtfield{
     padding-left: 10px;
     height: 20px;
@@ -166,6 +181,7 @@ body{
     padding: 9px;
     font: 400 13.3333px Arial;  
 }
+
 .ad_button:hover{
     background-color:#4787ed;
     border-style: outset;

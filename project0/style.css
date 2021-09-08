@@ -33,7 +33,7 @@ body{
 
 #img_txt{
     color:#4285f4;
-    font: 16px/16px roboto-regular, arial, sans-serif;
+    font: 16px/16px arial, sans-serif;
     position: relative;
     left: 105px;
     top: 76px;
@@ -46,16 +46,21 @@ body{
     background-repeat: no-repeat;
     background-size: 22px 22px;
     background-position: 10px 10px;
-    background-color:transparent;
+    background-color:#fff;
     padding:10px;
     padding-left: 40px;
     width: 50%;
-    border-radius: 30px;
-    border-width: 1px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    box-shadow: none;
     font-size: 1em;
+}
+.searchbar:hover{
+    border-style: groove;
 }
 .searchbar:focus{
     outline: none;
+    border-style: groove;
 }
 
 .submit{
@@ -67,7 +72,6 @@ body{
     background-color:#f8f9fa;
     font-size: 14px;
     padding: 10px;
-    border-width: 1px;
     font: 400 13.3333px Arial;
 }
 

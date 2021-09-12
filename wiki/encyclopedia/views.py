@@ -1,3 +1,4 @@
+from random import choice
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -6,8 +7,8 @@ import markdown2
 
 from . import util
 
-class SearchEntryForm(forms.Form):
-    article = forms.CharField(label="Search entry")
+#class SearchEntryForm(forms.Form):
+#    article = forms.CharField(label="Search entry")
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -24,4 +25,14 @@ def entry(request, entryName):
         f.write(html)
     return render(request, "encyclopedia/entry.html",{
         "name" : entryName
+    })
+
+def random(request):
+    random_name =choice(util.list_entries())
+    random_entry = util.get_entry(random_name)
+    html = markdown2.markdown(random_entry)
+    with open('encyclopedia/templates/encyclopedia/temp.html', 'w') as f:
+        f.write(html)
+    return render(request, "encyclopedia/entry.html" , {
+        "name" : random_name
     })

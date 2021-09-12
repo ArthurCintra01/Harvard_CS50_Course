@@ -1,9 +1,13 @@
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django import forms
 import markdown2
 
 from . import util
 
+class SearchEntryForm(forms.Form):
+    article = forms.CharField(label="Search entry")
 
 def index(request):
     return render(request, "encyclopedia/index.html", {

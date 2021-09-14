@@ -11,7 +11,7 @@ class SearchEntryForm(forms.Form):
 
 class createPageForm(forms.Form):
     title = forms.CharField(label='title')
-    page = forms.CharField(label=False, widget=forms.Textarea(attrs={'rows':10, 'cols':20, 'placeholder':'Page'}))
+    page = forms.CharField(label=False, widget=forms.Textarea(attrs={ 'placeholder':'Page' }))
 
 def updateTemp(entryName):
     en = util.get_entry(entryName)

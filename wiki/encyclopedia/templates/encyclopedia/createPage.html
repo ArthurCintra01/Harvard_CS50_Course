@@ -4,6 +4,19 @@
     Create Page
 {% endblock %}
 
+{% block style %}
+<style>
+    .submit{
+        color: #3c4043;
+        background-color: #f8f9fa;
+        border:1px solid #f8f9fa; 
+    }
+    .submit:hover{
+        border-style: outset;
+    }
+</style>
+{% endblock %}
+
 {% block search %}
 <form action="{% url 'wiki:search' %}" method='post'>
     {% csrf_token %}
@@ -15,6 +28,6 @@
 <form action="{% url 'wiki:createPage' %}" method='post'>
     {% csrf_token %}
     {{ createForm }}
-    <input type='submit' value='save'>
+    <input class='submit' type='submit' value='save'>
 </form>
 {% endblock %}

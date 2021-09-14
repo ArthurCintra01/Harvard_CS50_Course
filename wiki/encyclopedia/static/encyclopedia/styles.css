@@ -12,7 +12,7 @@ h1 {
     padding-top: 20px;
 }
 
-textarea {
+.textarea {
     height: 90vh;
     width: 80%;
 }
@@ -25,10 +25,6 @@ textarea {
     width: 100%;
     font-size: 15px;
     line-height: 15px;
-}
-input[type=submit]
-{
-    display:hidden;
 }
 
 .sidebar {

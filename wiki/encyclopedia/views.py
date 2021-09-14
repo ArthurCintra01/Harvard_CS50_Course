@@ -7,15 +7,10 @@ import markdown2
 
 from . import util
 
-#class SearchEntryForm(forms.Form):
-#    article = forms.CharField(label="Search entry")
+class SearchEntryForm(forms.Form):
+    search_entry = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'search', 'placeholder':'Search'}))
 
-def index(request):
-    return render(request, "encyclopedia/index.html", {
-        "entries": util.list_entries()
-    })
-
-def entry(request, entryName):
+def updateTemp(entryName):
     en = util.get_entry(entryName)
     if en == None:
         html = markdown2.markdown("# Error\n \tYour requested page was not found")
@@ -23,16 +18,42 @@ def entry(request, entryName):
         html = markdown2.markdown(en)
     with open('encyclopedia/templates/encyclopedia/temp.html', 'w') as f:
         f.write(html)
+
+def index(request):
+    return render(request, "encyclopedia/index.html", {
+        "entries": util.list_entries(),
+        "form" : SearchEntryForm()
+    })
+
+def entry(request, entryName):
+    updateTemp(entryName)
     return render(request, "encyclopedia/entry.html",{
-        "name" : entryName
+        "name" : entryName,
+        "form" : SearchEntryForm()
     })
 
 def random(request):
     random_name =choice(util.list_entries())
-    random_entry = util.get_entry(random_name)
-    html = markdown2.markdown(random_entry)
-    with open('encyclopedia/templates/encyclopedia/temp.html', 'w') as f:
-        f.write(html)
+    updateTemp(random_name)
     return render(request, "encyclopedia/entry.html" , {
-        "name" : random_name
+        "name" : random_name,
+        "form" : SearchEntryForm()
     })
+
+
+def search(request):
+    if request.method == 'POST':
+        form = SearchEntryForm(request.POST)
+        if form.is_valid():
+            search = form.cleaned_data['search_entry']
+            updateTemp(search)                          
+            return render(request, "encyclopedia/entry.html", {
+                "name" : search,
+                "form" : SearchEntryForm()
+            })     
+        else:
+            return render(request, "encyclopedia/index.html", {
+            "entries": util.list_entries(),
+            "form" : SearchEntryForm()
+            })
+                

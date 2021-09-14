@@ -4,6 +4,13 @@
     Wiki
 {% endblock %}
 
+{% block search %}
+<form action="{% url 'wiki:search' %}" method='post'>
+    {% csrf_token %}
+    {{ form }}
+</form>
+{% endblock %}
+
 {% block body %}
     <h1>All Pages</h1>
 

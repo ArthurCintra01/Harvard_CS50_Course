@@ -26,6 +26,10 @@ textarea {
     font-size: 15px;
     line-height: 15px;
 }
+input[type=submit]
+{
+    display:hidden;
+}
 
 .sidebar {
     background-color: #f0f0f0;

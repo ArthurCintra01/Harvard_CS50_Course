@@ -3,6 +3,14 @@
 {% block title %}
     {{name}}
 {% endblock %}
+
+{% block search %}
+<form action="{% url 'wiki:search' %}" method='post'>
+    {% csrf_token %}
+    {{ form }}
+</form>
+{% endblock %}
+
 {% block body %}
 {% include 'encyclopedia/temp.html' %}
 {% endblock %}

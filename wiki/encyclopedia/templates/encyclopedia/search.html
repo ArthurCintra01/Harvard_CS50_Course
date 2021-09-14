@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block search %}
+<form action="{% url 'wiki:search' %}" method='post'>
+    {% csrf_token %}
+    {{ form }}
+</form>
+{% endblock %}
+
+{% block body %}
+    <h1>Search Results</h1><br>
+    Pages similar to what you searched:
+    <br>
+    <br>
+    {% for entry in searchresults %}
+        <ul>
+            <li><a href="wiki/{{entry}}">{{entry}}</a></li>
+        </ul>
+    {% endfor %}
+{% endblock %}

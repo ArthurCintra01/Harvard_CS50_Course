@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.urls import reverse
 from django import forms
 import markdown2
-
 from . import util
 
 class SearchEntryForm(forms.Form):
@@ -35,25 +34,26 @@ def entry(request, entryName):
 def random(request):
     random_name =choice(util.list_entries())
     updateTemp(random_name)
-    return render(request, "encyclopedia/entry.html" , {
-        "name" : random_name,
-        "form" : SearchEntryForm()
-    })
+    return HttpResponseRedirect(f"wiki/{random_name}") 
 
 
 def search(request):
+    searchresults = []
     if request.method == 'POST':
         form = SearchEntryForm(request.POST)
         if form.is_valid():
             search = form.cleaned_data['search_entry']
-            updateTemp(search)                          
-            return render(request, "encyclopedia/entry.html", {
-                "name" : search,
+            for entry in util.list_entries():
+                if (search == entry):
+                    updateTemp(search)         
+                    return HttpResponseRedirect(f"wiki/{search}")  
+                elif (search.lower() in entry.lower()):
+                    searchresults.append(entry)
+
+            return render(request, "encyclopedia/search.html",{
+                "searchresults" : searchresults,
                 "form" : SearchEntryForm()
-            })     
+            })   
         else:
-            return render(request, "encyclopedia/index.html", {
-            "entries": util.list_entries(),
-            "form" : SearchEntryForm()
-            })
+            return HttpResponseRedirect(reverse('wiki:index'))
                 

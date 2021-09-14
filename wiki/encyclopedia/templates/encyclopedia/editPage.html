@@ -1,0 +1,33 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Page
+{% endblock %}
+
+{% block style %}
+<style>
+    .submit{
+        color: #3c4043;
+        background-color: #f8f9fa;
+        border:1px solid #f8f9fa; 
+    }
+    .submit:hover{
+        border-style: outset;
+    }
+</style>
+{% endblock %}
+
+{% block search %}
+<form action="{% url 'wiki:search' %}" method='post'>
+    {% csrf_token %}
+    {{ form }}
+</form>
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'wiki:postEdit' %}" method='post'>
+    {% csrf_token %}
+    {{ editForm }}
+    <input class='submit' type='submit' value='save'>
+</form>
+{% endblock %}

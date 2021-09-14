@@ -9,6 +9,10 @@ from . import util
 class SearchEntryForm(forms.Form):
     search_entry = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'search', 'placeholder':'Search'}))
 
+class createPageForm(forms.Form):
+    title = forms.CharField(label='title')
+    page = forms.CharField(label=False, widget=forms.Textarea(attrs={'rows':10, 'cols':20, 'placeholder':'Page'}))
+
 def updateTemp(entryName):
     en = util.get_entry(entryName)
     if en == None:
@@ -57,3 +61,15 @@ def search(request):
         else:
             return HttpResponseRedirect(reverse('wiki:index'))
                 
+def createPage(request):
+    if request.method == 'POST':
+        form = createPageForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            page = form.cleaned_data['page']
+            util.save_entry(title,page)
+            return HttpResponseRedirect(reverse('wiki:index'))
+    return render(request, "encyclopedia/createPage.html", {
+        'form' : SearchEntryForm(),
+        'createForm' : createPageForm()
+    })

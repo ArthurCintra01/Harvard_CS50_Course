@@ -11,18 +11,25 @@ class SearchEntryForm(forms.Form):
     search_entry = forms.CharField(label=False, widget=forms.TextInput(attrs={'class': 'search', 'placeholder':'Search'}))
 
 class createPageForm(forms.Form):
-    title = forms.CharField(label='title')
-    page = forms.CharField(label=False, widget=forms.Textarea(attrs={ 'placeholder':'Page' }))
+    title = forms.CharField(label='title', widget=forms.TextInput(attrs={'id': 'title'}))
+    page = forms.CharField(label=False, widget=forms.Textarea(attrs={'class':'textarea', 'placeholder':'Page' }))
+
+class editPageForm(forms.Form):
+    title = forms.CharField(label='title',widget=forms.TextInput(attrs={'id':'readonly' ,'readonly': 'readonly'}))
+    page = forms.CharField(label=False, widget=forms.Textarea(attrs={'class':'textarea', 'placeholder':'Page' }))
 
 #utilities
 def updateTemp(entryName):
     en = util.get_entry(entryName)
     if en == None:
         html = markdown2.markdown("# Error\n \tYour requested page was not found")
+        error = True
     else:
         html = markdown2.markdown(en)
+        error = False
     with open('encyclopedia/templates/encyclopedia/temp.html', 'w') as f:
         f.write(html)
+    return error
 
 #view functions
 def index(request):
@@ -32,7 +39,11 @@ def index(request):
     })
 
 def entry(request, entryName):
-    updateTemp(entryName)
+    temp = updateTemp(entryName)
+    if temp == True:
+        return render(request, "encyclopedia/error.html",{
+            "form" : SearchEntryForm()
+        })
     return render(request, "encyclopedia/entry.html",{
         "name" : entryName,
         "form" : SearchEntryForm()
@@ -74,8 +85,7 @@ def createPage(request):
                     html = markdown2.markdown("# Error\n \tAn encyclopedia entry already exists with the provided title!")
                     with open('encyclopedia/templates/encyclopedia/temp.html', 'w') as f:
                         f.write(html)
-                    return render(request, "encyclopedia/entry.html",{
-                        "name" : 'Error',
+                    return render(request, "encyclopedia/error.html",{
                         "form" : SearchEntryForm()
                      })
             page = form.cleaned_data['page']
@@ -87,8 +97,8 @@ def createPage(request):
     })
 
 def editPage(request, entryName):
-    initial = {'title':entryName, 'page': util.get_entry(entryName)}
-    editform = createPageForm(initial=initial)
+    initial = {'title':entryName ,'page': util.get_entry(entryName)}
+    editform = editPageForm(initial=initial)
     return render(request, "encyclopedia/editPage.html", {
         'form': SearchEntryForm(),
         'editForm' : editform,
@@ -97,7 +107,7 @@ def editPage(request, entryName):
 
 def postEdit(request):
     if request.method == 'POST':
-        editform = createPageForm(request.POST)
+        editform = editPageForm(request.POST)
         if editform.is_valid():
             title = editform.cleaned_data['title']
             page = editform.cleaned_data['page']

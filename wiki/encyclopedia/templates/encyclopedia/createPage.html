@@ -7,12 +7,24 @@
 {% block style %}
 <style>
     .submit{
-        color: #3c4043;
-        background-color: #f8f9fa;
-        border:1px solid #f8f9fa; 
+        padding: 5px;
+        margin-top: 5px;
+        color: white;
+        background-color: #4d90fe;
+        border:1px solid #4d90fe; 
     }
     .submit:hover{
+        background-color:#4787ed;
         border-style: outset;
+    }
+    .textarea {
+        display: flex;
+        height: 80vh;
+        width: 60%;
+    }
+    #title {
+        margin-bottom: 5px;
+        width: 10%;
     }
 </style>
 {% endblock %}
@@ -28,6 +40,6 @@
 <form action="{% url 'wiki:createPage' %}" method='post'>
     {% csrf_token %}
     {{ createForm }}
-    <input class='submit' type='submit' value='save'>
+    <input class='submit' type='submit' value='Save New Page'>
 </form>
 {% endblock %}

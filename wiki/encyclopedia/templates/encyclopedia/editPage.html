@@ -7,12 +7,26 @@
 {% block style %}
 <style>
     .submit{
-        color: #3c4043;
-        background-color: #f8f9fa;
-        border:1px solid #f8f9fa; 
+        padding: 5px;
+        margin-top: 5px;
+        color: white;
+        background-color: #4d90fe;
+        border:1px solid #4d90fe; 
     }
     .submit:hover{
+        background-color:#4787ed;
         border-style: outset;
+    }
+    #readonly{
+        padding-left: 10px;
+        padding-right: 0;
+        border-style: hidden;
+        width: 10%;
+    }
+    .textarea {
+        display:flex;
+        height: 80vh;
+        width: 60%;
     }
 </style>
 {% endblock %}
@@ -28,6 +42,6 @@
 <form action="{% url 'wiki:postEdit' %}" method='post'>
     {% csrf_token %}
     {{ editForm }}
-    <input class='submit' type='submit' value='save'>
+    <input class='submit' type='submit' value='Save edit'>
 </form>
 {% endblock %}

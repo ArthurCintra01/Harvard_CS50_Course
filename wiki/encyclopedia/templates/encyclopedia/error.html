@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block search %}
+<form action="{% url 'wiki:search' %}" method='post'>
+    {% csrf_token %}
+    {{ form }}
+</form>
+{% endblock %}
+
+{% block body %}
+{% include 'encyclopedia/temp.html' %}
+{% endblock %}

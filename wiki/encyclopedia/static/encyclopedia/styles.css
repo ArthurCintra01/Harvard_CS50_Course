@@ -16,7 +16,9 @@ h1 {
 }
 
 .search {
-    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90%;
     font-size: 15px;
     line-height: 15px;
 }
@@ -24,7 +26,10 @@ h1 {
 .sidebar {
     background-color: #f0f0f0;
     height: 100vh;
-    padding: 20px;
+}
+
+.row{
+    margin:1px;
 }
 
 .sidebar h2 {

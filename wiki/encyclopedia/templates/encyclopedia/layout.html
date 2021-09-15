@@ -16,13 +16,13 @@
                 <h2>Wiki</h2>
                 {% block search %}
                 {% endblock %}
-                <div>
+                <div class='link'>
                     <a href="{% url 'wiki:index' %}">Home</a>
                 </div>
-                <div>
+                <div class='link'>
                     <a href="{% url 'wiki:createPage' %}">Create New Page</a>
                 </div>
-                <div>
+                <div class='link'>
                     <a href="{% url 'wiki:random' %}">Random Page</a>
                 </div>
                 {% block nav %}

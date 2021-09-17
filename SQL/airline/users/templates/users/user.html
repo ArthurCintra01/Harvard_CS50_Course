@@ -8,5 +8,6 @@
         <li>Username: {{request.user.username}}</li>
         <li>Email: {{request.user.email}}</li>
     </ul>
+    <a href="/flights">Flights List</a><br>
     <a href="{% url 'logout' %}">Log Out</a>
 {% endblock %}
